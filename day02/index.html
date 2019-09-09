@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        .app{
+            width:938px;
+            display: flex;
+            justify-content: space-between;
+            margin:20px auto;
+            border:1px solid #ccc;
+            padding:10px;
+        }
+        .imgs{
+            width:200px;
+            height:150px;
+        }
+        .imgs img{
+            width:100%;
+            height:100%;
+        }
+        span{
+            color:red;
+            line-height: 45px;
+        }
+        h3{
+            font-size: 14px;
+            width:200px;
+            height:80px;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="root"></div>
+    <script src="./libs/react.js"></script>
+    <script src="./libs/react-dom.js"></script>
+    <script src="./libs/babel.js"></script>
+    <script type="text/babel">
+        let list = [
+            {
+                img:"http://pic39.nipic.com/20140321/18063302_210604412116_2.jpg",
+                prm:"399.00",
+                title:"血压仪  新生儿婴儿儿童成人 测血压 臂式全自动电子血压 08A 儿童",
+                cont:"康泰官方旗舰店"
+            },
+            {
+                img:"http://pic27.nipic.com/20130305/9252150_153617685375_2.jpg",
+                prm:"138.00",
+                title:"康泰（CONTEC）contec08D 血压计 上臂式 电子血压仪",
+                cont:"康泰官方旗舰店"
+            },
+            {
+                img:"http://pic51.nipic.com/file/20141025/8649940_220505558734_2.jpg",
+                prm:"399.00",
+                title:"康泰（CONTEC）contec08C 血压计 上臂式 软件分析",
+                cont:"康泰官方旗舰店"
+            },
+            {
+                img:"http://pic26.nipic.com/20121221/9252150_142515375000_2.jpg",
+                prm:"188.00",
+                title:"297组数据存储，大字体送给父母",
+                cont:"康泰官方旗舰店"
+            }
+        ]
+        console.log(list)
+        
+        function Myimgs(props){
+            let {imgs} = props
+            return <div className="imgs">
+                <img src={imgs}/>
+            </div>
+        }
+        function Mycont(props){
+            let {prm,title,cont} = props
+            return <div className="cont">
+                <span>{prm}</span>
+                <h3>{title}</h3>
+                <p>{cont}</p>
+            </div>
+        }
+        function Mybtn(){
+            return <div className="btn">
+                
+            </div>
+        }
+        function App(){
+            return <div className="app">
+                {list.map((item,index) => 
+                    <div>
+                        <Myimgs imgs={item.img}/>
+                        <Mycont prm={item.prm} title={item.title} cont={item.cont}/>
+                        <Mybtn/>
+                    </div>
+                )}
+            </div>
+        }
+
+        ReactDOM.render(<App/>,document.getElementById("root"))
+    </script>
+</body>
+</html>

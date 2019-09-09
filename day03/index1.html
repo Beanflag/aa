@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script src="./libs/react.js"></script>
+    <script src="./libs/react-dom.js"></script>
+    <script src="./libs/babel.js"></script>
+    <script type="text/babel">
+        class Head extends React.Component{
+            constructor(){
+                super();
+                this.state = {
+                    isShow: false
+                }
+            }
+            render(){
+                let {isShow} = this.state;
+                return <div>
+                    <header style={{display:isShow?"block":"none"}}>标题</header>
+                    <button onClick={this.changes.bind(this)}>点击切换</button>
+                </div>
+            }
+            changes(){
+                let {isShow} = this.state
+                this.setState({
+                    isShow:!isShow
+                })
+            }
+        }
+        ReactDOM.render(<Head/>,document.getElementById("root"))
+    </script>
+</body>
+</html>

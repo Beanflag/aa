@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./libs/react.js"></script>
+    <script src="./libs/react-dom.js"></script>
+    <script src="./libs/react.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        class Todo extends React.Component{
+            state = {
+                list:[],
+                msg:''
+            }
+            render(){
+                let {msg,list} = this.state;
+                return <div>
+                    <div>
+                        <input type="text" value={msg} onChange={(e) => {
+                            this.setState({
+                                msg:e.target.value
+                            })
+                        }}/>
+                        <button onClick={() => {
+                            let {list,msg} = this.state;
+                            list.push(msg);
+                            this.setState({
+                                list,
+                                msg:''
+                            })
+                        }}>add<button>
+                    </div>
+                    <ul>
+                        {list.length && list.map((item,ind) => <li key={ind}>{item}</li>)}
+                    </ul>
+                </div>
+            }
+        }
+        ReactDOM.render(<Todo/>,document.getElementById("root"))
+    </script>
+</body>
+</html>

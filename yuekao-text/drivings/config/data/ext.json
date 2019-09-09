@@ -1,0 +1,75 @@
+ [
+    {
+      "options": [{
+        "id":0,
+        "con":"5年内",
+        "isquery":false
+      },{
+        "id":1,
+        "con":"10年内",
+        "isquery":false
+      },{
+        "id":2,
+        "con":"终生",
+        "isquery":true
+      },{
+        "id":3,
+        "con":"20年内",
+        "isquery":false
+      }],
+      "question":"机动车驾驶人造成事故后逃逸构成犯罪的，吊销驾驶证且多长时间不得重新取得驾驶证？",
+      "selected":0,
+      "flag":false,
+      "isTrue":2,
+      "id":12
+    
+    }, {
+      "options": [{
+        "id":0,
+        "con":"违章行为",
+        "isquery":false
+      },{
+        "id":1,
+        "con":"违法行为",
+        "isquery":true
+      },{
+        "id":2,
+        "con":"过失行为",
+        "isquery":false
+      },{
+        "id":3,
+        "con":"违规行为",
+        "isquery":false
+      }],
+      "question": "驾驶机动车在道路上违反道路交通安全法的行为，属于什么行为？",
+      "selected":0,
+      "flag":false,
+      "isTrue":1,
+      "id":13
+    
+    }, {
+      "options": [{
+        "id":0,
+        "con":"刑事责任",
+        "isquery":false
+      },{
+        "id":1,
+        "con":"民事责任",
+        "isquery":false
+      },{
+        "id":2,
+        "con":"经济责任",
+        "isquery":false
+      },{
+        "id":3,
+        "con":"直接责任",
+        "isquery":true
+      }],
+      "question": "机动车驾驶人违法驾驶造成重大交通事故构成犯罪的，依法追究什么责任？",
+      "selected":0,
+      "flag":false,
+      "isTrue":3,
+      "id":14
+    
+    }]
+   

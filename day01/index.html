@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            list-style: none;
+        }
+        #box{
+            width: 300px;
+            margin:20px auto;
+        }
+        ul{
+            margin:20px;
+        }
+        li{
+            width:100%;
+            border-bottom: 1px solid #ccc;
+            display: flex;
+            justify-content: space-between;
+        }
+        li:hover{
+            background:#eee;
+        }
+        span{
+            padding:10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script>
+        // let elem = {
+        //     tagName:'ul',
+        //     props:{
+        //         'class':'list'
+        //     },
+        //     children:[
+        //         {tagName:'li',children:['豆皑旗']}
+        //     ]
+        // }
+
+        // console.log(elem)
+
+        // function createElement(elem){
+        //     let {tagName,props,children} = elem
+        //     var realEle = document.createElement(tagName)
+        //     if(props){
+        //         var keys = Object.keys(props);
+        //         keys.forEach(item => {
+                    
+        //         })
+        //     }
+        // }
+
+        // console.log(createElement(elem))
+
+        // let oUl = {
+        //     tagName: 'ul',
+        //     props: {
+        //         className: 'list'
+        //     },
+        //     children: [{
+        //         tagName: 'li',
+        //         props: null,
+        //         children: ['1']
+        //     }, {
+        //         tagName: 'li',
+        //         props: null,
+        //         children: ['2']
+        //     }]
+        // };
+        // let vTree = {
+        //     tagName:'div',
+        //     props:{
+        //         id:'all',
+        //         style:{color:'red',fontSize:'12px'}
+        //     },
+        //     children:['序号',oUl,{
+        //         tagName:'p',
+        //         props:null,
+        //         children:['helloworld']
+        //     }]
+        // };
+
+        // //函数需要关注4个方面：1.函数的传参 2.函数的返回值 3.函数的功能 4.函数在何时调用
+        // function createElement(vTree){
+        //     var {tagName,props,children} = vTree;
+        //     var realEle = document.createElement(tagName);
+        //     if(props){
+        //         var keys = Object.keys(props);
+        //         keys.forEach(item => {
+        //             if(item === 'style'){
+        //                 Object.keys(props['style']).forEach(item => {
+        //                     realEle.style[item] = props['style'][item];
+        //                 })
+        //             }else{
+        //                 realEle.setAttribute(item,props[item]);
+        //             }
+        //         })
+        //     }
+            
+
+        //     children.forEach(item => {
+        //         if(typeof item === 'string'){
+        //             let text = document.createTextNode(item);
+        //             realEle.appendChild(text);
+        //         }else{
+        //             realEle.appendChild(createElement(item));
+        //         }
+        //     })
+
+        //     return realEle
+        // }
+        // console.log(createElement(vTree));
+
+        
+        // const p = React.createElement('p',{className:'text',style:{width:'100px',height:'100px',background:'green'}},['word'])
+        // const div = React.createElement('div',{className:'wrap',style:{width:'120px',height:'120px',background:'red'}},p)
+        // ReactDOM.render(div,box)
+         
+        let list = [
+            {name:"张三",color:"red", age:"12"},
+            {name:"李四",color:"green",age:"15"},
+            {name:"王五",color:"blue",age:"18"}
+        ]
+        let str = list.map((item,index) => {
+            return React.createElement('li',{key:index,style:{color:item.color}},[React.createElement('span',{key:1},item.name),React.createElement('span',{key:2},item.age)])
+        })
+        let ul = React.createElement('ul',{},str)
+        ReactDOM.render(ul,box)
+    </script>
+</body>
+</html>

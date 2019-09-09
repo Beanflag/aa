@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./libs/react.js"></script>
+    <script src="./libs/react-dom.js"></script>
+    <script src="./libs/babel.js"></script>
+    <style>
+        .red{
+            padding:100px;
+            background:red;
+        }
+        .green{
+            padding:100px;
+            background:green;
+        }
+        .blue{
+            padding:100px;
+            background:blue;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        class Child extends React.Component{
+            componentDidMount(){
+                let {red,green,blue} = this.refs
+                red.addEventListener("click",function(){
+                    console.log("red")
+                },true)
+                green.addEventListener("click",function(){
+                    console.log("green")
+                },true)
+                blue.addEventListener("click",function(){
+                    console.log("blue")
+                },true)
+            }
+            render(){
+                return <div>
+                <div className="red" ref="red" onClick={() => {
+                    console.log("react---red")
+                }}>
+                    <div className="green" ref="green" onClick={() => {
+                    console.log("react---green")
+                }}>
+                        <div className="blue" ref="blue" onClick={() => {
+                    console.log("react---blue")
+                }}></div>
+                    </div>
+                </div>
+            </div>
+            }
+           
+        }
+        class App extends React.Component{
+            render(){
+                return <div>
+                    <Child/>
+                </div>
+            }
+        }
+        
+        ReactDOM.render(<App/>,document.getElementById("root"))
+    </script>
+</body>
+</html>
